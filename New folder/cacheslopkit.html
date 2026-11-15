@@ -1,0 +1,78 @@
+<html lang="id" manifest="prolapse.manifest">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7.00 - 14.02 Webkit by Dunia Game Pekanbaru</title>
+<link rel="stylesheet" href="apache.css">
+</head>
+<body>
+
+<script>
+history.replaceState(null,null,'index.html');
+var histlength=history.length;
+history.go(-histlength);
+
+function setMsg(htmlContent, type) {
+    var msgsElem = document.getElementById("msgs");
+    if(!msgsElem) return;
+    
+    msgsElem.className = ""; 
+    if (type === "success") {
+        msgsElem.classList.add("success");
+    } else if (type === "error") {
+        msgsElem.classList.add("error");
+    }
+    msgsElem.innerHTML = htmlContent;
+}
+
+function DLProgress(e){
+    Percent = Math.round(e.loaded / e.total * 100);
+    setMsg("Menginstal Cache Offline: " + Percent + "%", "running");
+    
+    var bar = document.getElementById("pbar");
+    if (bar) {
+        bar.style.width = Percent + "%";
+    }
+}
+
+function DisplayCacheProgress(){
+    setMsg("Cache Berhasil Diinstal", "success");
+    var bar = document.getElementById("pbar");
+    if (bar) {
+        bar.style.width = "100%";
+    }
+    setTimeout(function(){
+        window.location.href = "index.html";
+    }, 1500);
+}
+
+</script>
+
+<div class="container">
+    <div class="logo-container">
+        <img src="logo.png" alt="Dunia Game Pekanbaru" class="logo">
+    </div>
+
+    <div class="header-title">Webkit by Dunia Game Pekanbaru</div>
+    
+    <div class="status-card">
+        <div id="msgs">Memulai Instalasi Cache...</div>
+        <div class="progress-container">
+            <div id="pbar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="thanks-section">
+        <h3>TOKO PS2 PS3 PS4 PS5 PLAYBOX DAN ACC PS DUNIA GAME PEKANBARU</h3>
+        <div class="credits-list">
+            <span class="credit-item">HP/WA: 085274463992</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; Dunia Game Pekanbaru</p>
+</footer>
+
+</body>
+</html>
